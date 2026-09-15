@@ -1,0 +1,97 @@
+# ================================================================
+# .NET / C# build results
+# ================================================================
+bin/
+obj/
+out/
+publish/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / Visual Studio
+.vs/
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# ================================================================
+# Build artifacts (release zips should not be committed)
+# ================================================================
+*.dll
+*.pdb
+*.exe
+*.nupkg
+*.snupkg
+!CSAntiCheat.csproj
+
+# ================================================================
+# User configuration (each server has its own)
+# ================================================================
+anticheat_config.json
+anticheat_bans.json
+anticheat_suspicions.json
+settings.json
+settings/
+plugins/
+configs/
+data/
+logs/
+
+# ================================================================
+# Logs and dumps
+# ================================================================
+*.log
+*.log.*
+crash-dumps/
+*.dmp
+*.mdmp
+
+# ================================================================
+# OS files
+# ================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ================================================================
+# Temporary / backup files
+# ================================================================
+*.tmp
+*.bak
+*.swp
+*~
+*.orig
+*.rej
+
+# ================================================================
+# NuGet
+# ================================================================
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ================================================================
+# Rider
+# ================================================================
+.idea/
+*.sln.DotSettings.user
+
+# ================================================================
+# Personal
+# ================================================================
+TODO.md
+notes.md
+*.local
+.env
