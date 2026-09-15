@@ -1,0 +1,105 @@
+{
+  "WebhookUrl": "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE",
+  "WebhookUsername": "Server | AntiCheat",
+  "ServerName": "My CS2 Server",
+  "WebhookEnabled": true,
+
+  "Whitelist": [
+    "76561198737716015"
+  ],
+  "SuperAdmins": [
+    "76561198737716015"
+  ],
+
+  "SpeedCheckEnabled": true,
+  "MaxSpeed": 6.0,
+  "SpeedConsecutiveTicks": 8,
+  "HugeSpeedThreshold": 14.0,
+  "HugeSpeedConsecutiveTicks": 3,
+
+  "AimCheckEnabled": true,
+  "MaxAngleDeltaPerTick": 55.0,
+  "SnapConsecutiveTicks": 2,
+  "AimWindowMaxAvg": 20.0,
+  "AimWindowSize": 8,
+
+  "JerkAnalysisEnabled": true,
+  "JerkConsecutiveTicks": 4,
+  "JerkMinMagnitude": 0.3,
+  "JerkSmallTolerance": 0.4,
+  "SmoothJerkConsecutiveTicks": 6,
+
+  "SubpixelConsecutiveTicks": 15,
+  "SubpixelMinDelta": 1.5,
+
+  "GridSnapEnabled": true,
+  "GridSnapTolerance": 0.5,
+  "GridSnapMinShots": 4,
+  "StdDevTrigger": 15.0,
+
+  "PrefireCheckEnabled": true,
+  "PrefireWindowMs": 150,
+  "PrefireConeDegrees": 20.0,
+  "PrefireMaxDistance": 3000.0,
+  "PrefireShotDirTolerance": 30.0,
+  "PrefireMinEvents": 2,
+  "PrefireThrottleSeconds": 15,
+  "PrefireSingleTapWindowMs": 500,
+
+  "WallbangProxyCheckEnabled": true,
+  "WallbangProxyMinHits": 30,
+  "WallbangProxyRatioTrigger": 0.30,
+  "WallbangProxyConeDegrees": 25.0,
+
+  "StrafeSyncCheckEnabled": true,
+  "StrafeSyncConsecutiveTicks": 12,
+  "StrafeSyncMinYawDelta": 1.0,
+  "StrafeSyncMinSpeed": 3.0,
+
+  "PitchAntiAimCheckEnabled": true,
+  "PitchMinLimit": -89.0,
+  "PitchMaxLimit": 89.0,
+  "PitchBanConsecutiveTicks": 2,
+
+  "SpinbotCheckEnabled": true,
+  "SpinbotMinYawDelta": 140.0,
+  "SpinbotConsecutiveTicks": 3,
+
+  "PacketCheckEnabled": true,
+  "PacketMaxCmdsPerSecond": 140,
+  "PacketMaxJumpPerSecond": 6,
+
+  "BhopCheckEnabled": false,
+  "BhopMinSpeed": 8.0,
+  "BhopConsecutiveTicks": 6,
+
+  "AiScoringEnabled": true,
+  "AiDiversityBonus": 1.6,
+
+  "SuspicionToBan": 25,
+  "SuspicionDecaySeconds": 90,
+  "AutoBanEnabled": true,
+  "BanDurationMinutes": 0,
+  "MinPlayersForChecks": 1,
+  "HeadshotRatioToFlag": 0.90,
+  "MinKillsToCheckHS": 12,
+
+  "DebugLog": true,
+  "DebugIntervalSeconds": 2,
+
+  "VerificationRules": {
+    "Title": "🔍 Правила проверки игроков на читы",
+    "Rules": [
+      { "Num": "1", "Text": "Жалоба подаётся через команду !report." },
+      { "Num": "2", "Text": "Администратор собирает логи матча и Prefetch-логи." },
+      { "Num": "3", "Text": "Чек-лист: длительность матча >5 мин, наличие проигранного раунда." },
+      { "Num": "4", "Text": "Аномалии: скорость >7.2 м/с, поворот >360° за кадр." },
+      { "Num": "5", "Text": "Разрешённый софт: Steam Input, драйверы NVIDIA/AMD, MSI Afterburner." },
+      { "Num": "6", "Text": "Запрещённый софт: Aim, Wallhack, ESP, Bhop, Recoil Control, Anti-Aim." },
+      { "Num": "7", "Text": "За удаление/модификацию Prefetch-логов — бан до 72 часов." },
+      { "Num": "8", "Text": "Наказания: ур.1 — 2-12 ч; ур.2 — 24-72 ч; ур.3 — перманент." },
+      { "Num": "9", "Text": "Апелляция подаётся в течение 1 часа после вердикта." },
+      { "Num": "10", "Text": "Итоговое решение выносит античит-комиссия." }
+    ]
+  }
+}
