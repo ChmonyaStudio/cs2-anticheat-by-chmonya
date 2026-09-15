@@ -16,8 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Web panel for ban management
 
 ---
+## [2.4.2] — 2026-09-15
 
-## [2.4.1] — 2026-XX-XX
+### Added
+- `GetSuspicionScore()` public helper for MenuHandler
+- Skip checks during warmup AND freeze period
+- Retry counter for pending kicks
+
+### Fixed
+- File integrity issue (missing helper methods after truncation)
+- Removed unused `_buttonsWarned` field (clean build, 0 warnings)
+
+### Changed
+- Version bumped to 2.5.0
+## [2.4.1] — 2026-09-15
 
 ### Added
 - **HvH Pitch Anti-Aim** — instant ban when pitch is outside `[-89°; 89°]`
@@ -40,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.3.1] — 2026-XX-XX
+## [2.3.1] — 2026-09-14
 
 ### Added
 - **Prefire detection** — 150 ms window, direction match, 15 sec throttle
@@ -58,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.3.0] — 2026-XX-XX
+## [2.3.0] — 2026-09-14
 
 ### Added
 - **Prefire detection** module
@@ -73,7 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.2.0] — 2026-XX-XX
+## [2.2.0] — 2026-09-14
 
 ### Added
 - **Auto-Strafe Sync** detection (A/D + mouse in same tick)
@@ -86,7 +98,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.1.0] — 2026-XX-XX
+## [2.1.0] — 2026-09-14
 
 ### Added
 - **Robotic Click Timing** detection (σ < 15 ms across 5+ shots)
@@ -100,7 +112,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.0.0] — 2026-XX-XX
+## [2.0.0] — 2026-09-14
 
 ### Added
 - **JSON ban-list** — survives server restart (unlike native `banid`)
@@ -121,7 +133,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] — 2026-XX-XX
+## [1.0.0] — 2026-09-14
 
 ### Added
 - Initial release
