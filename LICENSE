@@ -1,0 +1,156 @@
+CS2 AntiCheat — Source-Available License
+Version 1.0, 2026
+
+Copyright (c) 2026 Chmonya
+All rights reserved.
+
+================================================================
+ПРЕАМБУЛА / PREAMBLE
+================================================================
+
+Это исходный код, доступный для публичного просмотра, использования
+и модификации под личные нужды. Продажа, публикация форков и
+присвоение авторства — запрещены.
+
+This is source-available code, provided for public viewing, personal
+use, and modification for personal needs. Selling, publishing forks,
+and claiming authorship are prohibited.
+
+================================================================
+ENGLISH
+================================================================
+
+1. GRANT OF RIGHTS
+
+You are granted a non-exclusive, non-transferable, royalty-free
+right to:
+
+   a) Use this software on your own Counter-Strike 2 server(s).
+   b) View, study, and analyze the source code.
+   c) Modify the source code for your own private use.
+   d) Distribute this software unmodified and free of charge,
+      provided this license is included in full and unmodified.
+
+2. RESTRICTIONS
+
+You MAY NOT:
+
+   a) Sell, license, rent, lease, or otherwise commercially exploit
+      this software or any derivative of it.
+   b) Publish, upload, or distribute modified versions of this
+      software (forks) on any platform, including but not limited
+      to GitHub, GitLab, Bitbucket, private servers, forums, or
+      any file-sharing service.
+   c) Claim authorship of this software or any part of it.
+   d) Remove, alter, or obscure any copyright notices, author
+      credits, or license text.
+   e) Use this software as part of a paid product, paid service,
+      or any offering that generates revenue.
+   f) Bundle this software with other paid products or services.
+   g) Rebrand this software and distribute it under a different
+      name.
+   h) Use the author's name, nickname, or logo for promotional
+      purposes without prior written permission.
+
+3. CONTRIBUTIONS
+
+By submitting a pull request, patch, or any other contribution,
+you grant the author a perpetual, irrevocable, royalty-free
+license to use, modify, and distribute your contribution as part
+of this software under the terms of this license. You retain
+copyright over your own contribution.
+
+4. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+5. TERMINATION
+
+Any violation of the restrictions in Section 2 automatically
+terminates your rights under this license. Upon termination,
+you must cease all use and destroy all copies of the software.
+
+6. GOVERNING LAW
+
+This license is governed by the laws of the author's country of
+residence, without regard to conflict of law principles.
+
+================================================================
+РУССКИЙ
+================================================================
+
+1. ПРЕДОСТАВЛЯЕМЫЕ ПРАВА
+
+Вам предоставляется неисключительное, непередаваемое,
+безвозмездное право:
+
+   а) Использовать данное ПО на своём сервере Counter-Strike 2.
+   б) Просматривать, изучать и анализировать исходный код.
+   в) Изменять исходный код для личного использования.
+   г) Распространять данное ПО в неизменённом виде и
+      бесплатно, при условии сохранения данной лицензии
+      в полном и неизменённом виде.
+
+2. ЗАПРЕТЫ
+
+ЗАПРЕЩАЕТСЯ:
+
+   а) Продавать, лицензировать, сдавать в аренду или иным
+      образом извлекать коммерческую выгоду из данного ПО
+      или его производных.
+   б) Публиковать, загружать или распространять изменённые
+      версии данного ПО (форки) на любой платформе, включая,
+      но не ограничиваясь: GitHub, GitLab, Bitbucket, приватные
+      серверы, форумы, файлообменники.
+   в) Присваивать авторство данного ПО или любой его части.
+   г) Удалять, изменять или скрывать уведомления об авторских
+      правах, упоминания автора или текст лицензии.
+   д) Использовать данное ПО как часть платного продукта,
+      платной услуги или любого предложения, приносящего
+      доход.
+   е) Включать данное ПО в состав других платных продуктов
+      или услуг.
+   ж) Переименовывать данное ПО и распространять его под
+      другим названием.
+   з) Использовать имя, ник или логотип автора в
+      рекламных целях без предварительного письменного
+      разрешения.
+
+3. ВКЛАДЫ
+
+Отправляя pull request, патч или любой другой вклад, вы
+предоставляете автору бессрочную, безотзывную, безвозмездную
+лицензию на использование, изменение и распространение вашего
+вклада в составе данного ПО на условиях настоящей лицензии.
+Авторские права на ваш собственный вклад остаются за вами.
+
+4. ОТСУТСТВИЕ ГАРАНТИЙ
+
+ПО ПРЕДОСТАВЛЯЕТСЯ "КАК ЕСТЬ", БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ
+ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ, ГАРАНТИИ
+ТОВАРНОЙ ПРИГОДНОСТИ, ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ И
+ОТСУТСТВИЯ НАРУШЕНИЙ ПРАВ. НИ В КАКОМ СЛУЧАЕ АВТОРЫ ИЛИ
+ПРАВООБЛАДАТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ЗА ЛЮБЫЕ ИСКИ, УЩЕРБ
+ИЛИ ИНУЮ ОТВЕТСТВЕННОСТЬ, БУДЬ ТО ПО ДОГОВОРУ, ДЕЛИКТУ ИЛИ
+ИНЫМ ОБРАЗОМ, ВОЗНИКАЮЩУЮ ИЗ ИЛИ В СВЯЗИ С ПО ИЛИ
+ИСПОЛЬЗОВАНИЕМ ИЛИ ИНЫМИ ДЕЙСТВИЯМИ С ПО.
+
+5. ПРЕКРАЩЕНИЕ
+
+Любое нарушение запретов из Раздела 2 автоматически прекращает
+ваши права по настоящей лицензии. При прекращении вы обязаны
+прекратить любое использование и уничтожить все копии ПО.
+
+6. ПРИМЕНИМОЕ ПРАВО
+
+Настоящая лицензия регулируется законодательством страны
+проживания автора, без учёта коллизионных норм.
+
+================================================================
