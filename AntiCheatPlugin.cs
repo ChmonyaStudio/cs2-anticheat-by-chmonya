@@ -11,7 +11,7 @@ namespace CSAntiCheat;
 public class AntiCheatPlugin : BasePlugin
 {
     public override string ModuleName => "CS2 AntiCheat";
-    public override string ModuleVersion => "2.4.1";
+    public override string ModuleVersion => "2.4.2";
     public override string ModuleAuthor => "Chmonya";
     public override string ModuleDescription => "Anti-cheat: webhook, DB, whitelist, DMA/AI/HvH/GridSnap/Prefire detection";
 
@@ -22,7 +22,7 @@ public class AntiCheatPlugin : BasePlugin
 
     private string _configPath = "";
     private readonly Dictionary<ulong, PlayerStats> _stats = new();
-    private readonly Dictionary<ulong, (string reason, DateTime until)> _pendingKicks = new();
+    private readonly Dictionary<ulong, (string reason, DateTime until, int attempts)> _pendingKicks = new();
 
     // Atomic reference swap — thread-safe without lock
     private volatile HashSet<ulong> _whitelistCache = new();
@@ -62,6 +62,7 @@ public class AntiCheatPlugin : BasePlugin
         Db.Initialize();
         Webhook = new WebhookLogger(Config.WebhookUrl, Config.WebhookUsername);
 
+        // Event handlers
         RegisterEventHandler<EventPlayerConnectFull>(OnPlayerConnect);
         RegisterEventHandler<EventPlayerDisconnect>(OnPlayerDisconnect);
         RegisterEventHandler<EventPlayerDeath>(OnPlayerDeath, HookMode.Post);
@@ -69,9 +70,12 @@ public class AntiCheatPlugin : BasePlugin
         RegisterEventHandler<EventPlayerJump>(OnPlayerJump, HookMode.Post);
         RegisterEventHandler<EventWeaponFire>(OnWeaponFire, HookMode.Post);
 
+        // Commands
         AddCommand("css_ac", "Anti-cheat menu", OnAcCommand);
         AddCommand("css_anticheat", "Anti-cheat menu", OnAcCommand);
         AddCommand("css_rules", "Verification rules", OnRulesCommand);
+
+        // Main loop
         RegisterListener<Listeners.OnTick>(OnTick);
 
         Console.WriteLine($"[AntiCheat v{ModuleVersion}] Loaded. Server={Config.ServerName}, Webhook={Config.WebhookEnabled}, AutoBan={Config.AutoBanEnabled}");
@@ -134,7 +138,7 @@ public class AntiCheatPlugin : BasePlugin
                     if (stillBanned)
                     {
                         Console.WriteLine($"[AntiCheat] {player.PlayerName} is banned. Kicking.");
-                        _pendingKicks[player.SteamID] = ("Banned", DateTime.UtcNow.AddSeconds(5));
+                        _pendingKicks[player.SteamID] = ("Banned", DateTime.UtcNow.AddSeconds(5), 0);
                         return HookResult.Continue;
                     }
                 }
@@ -339,12 +343,19 @@ public class AntiCheatPlugin : BasePlugin
     {
         try
         {
+            // Process pending kicks first (retries)
             ProcessPendingKicks();
+
             var players = Utilities.GetPlayers();
             if (players.Count < Config.MinPlayersForChecks) return;
 
+            // Skip warmup and freeze-time
             var gameRules = Utilities.FindAllEntitiesByDesignerName<CCSGameRulesProxy>("cs_gamerules").FirstOrDefault()?.GameRules;
-            if (gameRules != null && (gameRules.WarmupPeriod || gameRules.FreezePeriod)) return;
+            if (gameRules != null)
+            {
+                if (gameRules.WarmupPeriod) return;
+                if (gameRules.FreezePeriod) return;
+            }
 
             // ===== DEBUG (sqrt only inside throttle) =====
             if (Config.DebugLog && (DateTime.UtcNow - _lastDebug).TotalSeconds >= Config.DebugIntervalSeconds)
@@ -791,7 +802,6 @@ public class AntiCheatPlugin : BasePlugin
         catch { }
         return null;
     }
-
     private static QAngle? GetEyeAnglesFromController(CCSPlayerController player)
     {
         try
@@ -922,10 +932,15 @@ public class AntiCheatPlugin : BasePlugin
         foreach (var kv in _pendingKicks.ToList())
         {
             if (now > kv.Value.until) { _pendingKicks.Remove(kv.Key); continue; }
+
             var target = Utilities.GetPlayers().FirstOrDefault(p => p != null && p.IsValid && p.SteamID == kv.Key);
             if (target == null) { _pendingKicks.Remove(kv.Key); continue; }
+
             int uid = target.UserId ?? -1;
-            if (uid > 0) { try { Server.ExecuteCommand($"kickid {uid}"); } catch { } }
+            if (uid > 0)
+            {
+                try { Server.ExecuteCommand($"kickid {uid}"); } catch { }
+            }
         }
     }
 
@@ -1006,7 +1021,7 @@ public class AntiCheatPlugin : BasePlugin
 
         Console.WriteLine($"[AntiCheat] BAN: {target.PlayerName} | sid={target.SteamID} | reason={reason}");
 
-        _pendingKicks[target.SteamID] = (reason, DateTime.UtcNow.AddSeconds(5));
+        _pendingKicks[target.SteamID] = (reason, DateTime.UtcNow.AddSeconds(5), 0);
 
         int uid = target.UserId ?? -1;
         if (uid > 0)
@@ -1029,16 +1044,23 @@ public class AntiCheatPlugin : BasePlugin
         int uid = target.UserId ?? -1;
         if (uid > 0)
         {
-            _pendingKicks[target.SteamID] = (reason, DateTime.UtcNow.AddSeconds(3));
+            _pendingKicks[target.SteamID] = (reason, DateTime.UtcNow.AddSeconds(3), 0);
             try { Server.ExecuteCommand($"kickid {uid}"); } catch { }
         }
     }
 
     // ============================================================
-    // HELPERS / COMMANDS
+    // PUBLIC HELPERS (used by MenuHandler)
     // ============================================================
     public bool IsWhitelisted(ulong steamId) => _whitelistCache.Contains(steamId);
     public bool IsSuperAdmin(ulong steamId) => Config.SuperAdmins.Contains(steamId.ToString());
+
+    public int GetSuspicionScore(ulong steamId)
+    {
+        if (_stats.TryGetValue(steamId, out var stats))
+            return stats.SuspicionScore;
+        return 0;
+    }
 
     public bool IsAcAdmin(CCSPlayerController player)
     {
@@ -1047,6 +1069,9 @@ public class AntiCheatPlugin : BasePlugin
         catch { return false; }
     }
 
+    // ============================================================
+    // COMMANDS
+    // ============================================================
     private void OnRulesCommand(CCSPlayerController? player, CommandInfo cmd)
     {
         if (player == null) return;
@@ -1059,7 +1084,11 @@ public class AntiCheatPlugin : BasePlugin
     private void OnAcCommand(CCSPlayerController? player, CommandInfo cmd)
     {
         if (player == null || !player.IsValid) return;
-        if (!IsAcAdmin(player)) { player.PrintToChat($" {ChatColors.Red}[AntiCheat]{ChatColors.Default} Access denied."); return; }
+        if (!IsAcAdmin(player))
+        {
+            player.PrintToChat($" {ChatColors.Red}[AntiCheat]{ChatColors.Default} Access denied.");
+            return;
+        }
         MenuHandler.OpenMainMenu(player);
     }
 
