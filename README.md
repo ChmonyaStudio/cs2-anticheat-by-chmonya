@@ -4,7 +4,7 @@
 
 ![CS2](https://img.shields.io/badge/CS2-CounterStrikeSharp-blue)
 ![.NET](https://img.shields.io/badge/.NET-8.0-purple)
-![Release](https://img.shields.io/github/v/release/ChmonyaStudio/cs2-anticheat)
+![Release](https://img.shields.io/github/v/release/ChmonyaStudio/cs2-anticheat-by-chmonya)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
@@ -15,7 +15,7 @@ A modern, feature-rich anti-cheat plugin for CS2 servers running CounterStrikeSh
 
 ### 📦 Download
 
-**[⬇️ Download the latest release](https://github.com/ChmonyaStudio/cs2-anticheat/releases/latest)**
+**[⬇️ Download the latest release](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/releases/latest)**
 
 No compilation required — the release contains the compiled `.dll`, ready to drop into your plugins folder.
 
@@ -61,7 +61,7 @@ Follow the official guide: https://docs.cssharp.dev/
 
 #### 2. Download the plugin
 
-Go to the [**Releases**](https://github.com/ChmonyaStudio/cs2-anticheat/releases/latest) page and download:
+Go to the [**Releases**](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/releases/latest) page and download:
 
 - `CSAntiCheat-vX.Y.Z.zip` — compiled plugin, ready to install
 - `anticheat_config.example.json` — config template
@@ -166,7 +166,7 @@ MIT — see [LICENSE](LICENSE).
 
 ### 💬 Contact
 
-- **GitHub Issues:** [report a bug](https://github.com/ChmonyaStudio/cs2-anticheat/issues)
+- **GitHub Issues:** [report a bug](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/issues)
 - **Telegram:** [@p1zdabol4ik](https://t.me/p1zdabol4ik)
 
 ---
@@ -177,7 +177,7 @@ MIT — see [LICENSE](LICENSE).
 
 ### 📦 Скачать
 
-**[⬇️ Скачать последний релиз](https://github.com/ChmonyaStudio/cs2-anticheat/releases/latest)**
+**[⬇️ Скачать последний релиз](https://github.com/ChmonyaStudiocs2-anticheat-by-chmonya/releases/latest)**
 
 Сборка не нужна — в релизе готовый `.dll`, который просто кладётся в папку плагинов.
 
@@ -223,7 +223,7 @@ MIT — see [LICENSE](LICENSE).
 
 #### 2. Скачай плагин
 
-Открой страницу [**Releases**](https://github.com/ChmonyaStudio/cs2-anticheat/releases/latest) и скачай:
+Открой страницу [**Releases**](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/releases/latest) и скачай:
 
 - `CSAntiCheat-vX.Y.Z.zip` — скомпилированный плагин, готов к установке
 - `anticheat_config.example.json` — шаблон конфига
@@ -328,7 +328,7 @@ MIT — см. [LICENSE](LICENSE).
 
 ### 💬 Контакты
 
-- **GitHub Issues:** [сообщить о баге](https://github.com/ChmonyaStudio/cs2-anticheat/issues)
+- **GitHub Issues:** [сообщить о баге](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/issues)
 - **Telegram:** [@p1zdabol4ik](https://t.me/p1zdabol4ik)
 
 ---
