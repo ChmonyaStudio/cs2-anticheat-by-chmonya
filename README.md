@@ -168,6 +168,7 @@ MIT — see [LICENSE](LICENSE).
 
 - **GitHub Issues:** [report a bug](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/issues)
 - **Telegram:** [@p1zdabol4ik](https://t.me/p1zdabol4ik)
+- **Site:** [chmonya.ct.ws](https://chmonya.ct.ws)
 
 ---
 
@@ -330,6 +331,7 @@ MIT — см. [LICENSE](LICENSE).
 
 - **GitHub Issues:** [сообщить о баге](https://github.com/ChmonyaStudio/cs2-anticheat-by-chmonya/issues)
 - **Telegram:** [@p1zdabol4ik](https://t.me/p1zdabol4ik)
+- **Сайт:** [chmonya.ct.ws](https://chmonya.ct.ws)
 
 ---
 
